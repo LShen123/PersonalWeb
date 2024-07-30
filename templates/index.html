@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Dataset Regression Comparison</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Iris Dataset Regression Comparison</h1>
+
+    <h2>Linear Regression</h2>
+    <h3>Real vs Predicted Petal Widths (cm)</h3>
+    <img src="data:image/png;base64,{{ plot_url_lin }}" alt="Linear Regression Plot">
+
+    <h2>Logistic Regression</h2>
+    <h3>Actual vs Predicted Species Classifications</h3>
+    <img src="data:image/png;base64,{{ plot_url_log }}" alt="Logistic Regression Plot">
+    <p>Accuracy: {{ accuracy_log }}</p>
+</body>
+</html>
