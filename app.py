@@ -33,6 +33,10 @@ def index():
 
     return render_template('index.html', plot_url_lin=plot_url_lin, plot_url_log=plot_url_log, accuracy_log=accuracy_log)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
