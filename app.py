@@ -14,6 +14,14 @@ from sklearn.metrics import accuracy_score
 app = Flask(__name__)
 
 @app.route('/')
+def about():
+    return render_template('about.html')
+
+@app.route('/gallery')
+def gallery():
+    return render_template('gallery.html')
+
+@app.route('/model')
 def index():
     # Load the iris dataset
     iris = load_iris()
@@ -32,10 +40,6 @@ def index():
     accuracy_log = accuracy_score(y_test_log, pred_log)
 
     return render_template('index.html', plot_url_lin=plot_url_lin, plot_url_log=plot_url_log, accuracy_log=accuracy_log)
-
-@app.route('/about')
-def about():
-    return render_template('about.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))

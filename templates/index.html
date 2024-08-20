@@ -13,30 +13,28 @@
 </head>
 <body>
     <h1>Iris Dataset Regression Comparison</h1>
-
     <div>
-        <h2>Linear Regression</h2>
-        <button onclick="showGraph('linear')">Show Linear Regression Graph</button>
-        <div id="linear" class="hidden">
-            <h3>Real vs Predicted Petal Widths (cm)</h3>
-            <img src="data:image/png;base64,{{ plot_url_lin }}" alt="Linear Regression Plot">
-        </div>
+      <h2>Linear Regression</h2>
+      <button onclick="showGraph('linear')">Show Linear Regression Graph</button>
+      <div id="linear" class="hidden">
+          <h3>Real vs Predicted Petal Widths (cm)</h3>
+          <img src="data:image/png;base64,{{ plot_url_lin }}" alt="Linear Regression Plot">
+      </div>
+  </div>
+  <div>
+    <h2>Logistic Regression</h2>
+    <button onclick="showGraph('logistic')">Show Logistic Regression Graph</button>
+    <div id="logistic" class="hidden">
+        <h3>Actual vs Predicted Species Classifications</h3>
+        <img src="data:image/png;base64,{{ plot_url_log }}" alt="Logistic Regression Plot">
+        <p>Accuracy: {{ accuracy_log }}</p>
     </div>
+</div>
 
-    <div>
-        <h2>Logistic Regression</h2>
-        <button onclick="showGraph('logistic')">Show Logistic Regression Graph</button>
-        <div id="logistic" class="hidden">
-            <h3>Actual vs Predicted Species Classifications</h3>
-            <img src="data:image/png;base64,{{ plot_url_log }}" alt="Logistic Regression Plot">
-            <p>Accuracy: {{ accuracy_log }}</p>
-        </div>
-    </div>
-
-    <script>
-        function showGraph(graphId) {
-            document.getElementById(graphId).classList.toggle('hidden');
-        }
-    </script>
+<script>
+    function showGraph(graphId) {
+        document.getElementById(graphId).classList.toggle('hidden');
+    }
+</script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
@@ -23,6 +24,8 @@ def train_and_predict_logistic(iris_pd):
     Log.fit(X_train, y_train)
     pred = Log.predict(X_test)
     return X_train, X_test, y_train, y_test, pred
+
+
 
 def plot_results(y_test, pred, plot_type):
     plt.figure(figsize=(6, 6))
