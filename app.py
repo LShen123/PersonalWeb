@@ -14,6 +14,10 @@ from sklearn.metrics import accuracy_score
 app = Flask(__name__)
 
 @app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/about')
 def about():
     return render_template('about.html')
 
@@ -39,7 +43,7 @@ def index():
     # Calculate accuracy for Logistic Regression
     accuracy_log = accuracy_score(y_test_log, pred_log)
 
-    return render_template('index.html', plot_url_lin=plot_url_lin, plot_url_log=plot_url_log, accuracy_log=accuracy_log)
+    return render_template('regression.html', plot_url_lin=plot_url_lin, plot_url_log=plot_url_log, accuracy_log=accuracy_log)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
