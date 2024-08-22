@@ -1,7 +1,9 @@
 from flask import Flask, render_template, request
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
+from matplotlib import pyplot as plt
 import os
 from io import BytesIO
 import base64
@@ -25,7 +27,7 @@ def about():
 def gallery():
     return render_template('gallery.html')
 
-@app.route('/model')
+@app.route('/regression')
 def index():
     # Load the iris dataset
     iris = load_iris()

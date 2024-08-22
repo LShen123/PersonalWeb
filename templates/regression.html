@@ -1,40 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iris Dataset Regression Comparison</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <h1>Iris Dataset Regression Comparison</h1>
-    <div>
-      <h2>Linear Regression</h2>
-      <button onclick="showGraph('linear')">Show Linear Regression Graph</button>
-      <div id="linear" class="hidden">
-          <h3>Real vs Predicted Petal Widths (cm)</h3>
-          <img src="data:image/png;base64,{{ plot_url_lin }}" alt="Linear Regression Plot">
-      </div>
-  </div>
-  <div>
-    <h2>Logistic Regression</h2>
-    <button onclick="showGraph('logistic')">Show Logistic Regression Graph</button>
-    <div id="logistic" class="hidden">
-        <h3>Actual vs Predicted Species Classifications</h3>
-        <img src="data:image/png;base64,{{ plot_url_log }}" alt="Logistic Regression Plot">
-        <p>Accuracy: {{ accuracy_log }}</p>
-    </div>
-</div>
+<!doctype html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+  <head><script src="../assets/js/color-modes.js"></script>
 
-<script>
-    function showGraph(graphId) {
-        document.getElementById(graphId).classList.toggle('hidden');
-    }
-</script>
-</body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+  </head>
+
+    <body class="d-flex w-200 h-100 text-bg-dark">
+    <!--
+    -->
+      <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header>
+          <div>
+          <h3 class="float-md-start mb-0">Cover</h3>
+              <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav-link fw-bold py-1 px-0" href="/">Home</a>
+                <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Features</a>
+                <a class="nav-link fw-bold py-1 px-0 " href="/about">About</a>
+              </nav>
+          </div>
+        </header>
+
+      <main class="text-bg-dark">
+        <div class="container py-5">
+          <h1 class="text-center mb-4">Iris Dataset Regression Comparison</h1>
+          <div class="header text-center">
+            <h2>Linear Regression</h2>
+          </div>
+          <div class = "row">
+            <div class="col-md-6">
+              <h3>Real vs Predicted Petal Widths (cm)</h3>
+              <img src="data:image/png;base64,{{ plot_url_lin }}" alt="Linear Regression Plot">   
+            </div>
+            <div class="col-md-6">
+                <p>Add your description here for the linear regression results.</p>
+            </div>
+          </div>
+
+          <div class="header text-center">
+            <h2>Logistic Regression</h2>
+          </div>
+          <div class = "row">
+            <div class="col-md-6">
+              <h3>Actual vs Predicted Species Classifications</h3>
+              <img src="data:image/png;base64,{{ plot_url_log }}" class="img-fluid" alt="Logistic Regression Plot">   
+            </div>
+            <div class="col-md-6">
+                <p>Accuracy: {{ accuracy_log }}</p>
+                <p>Add your description here for the linear regression results.</p>
+            </div>
+          </div>
+        </div>
+        
+<!--
+        <div class="card text-bg-dark">
+            <div class="card-header">
+                <h2>Logistic Regression</h2>
+            </div>
+            <div class="card-body">
+                <button class="btn btn-primary mb-3" onclick="showGraph('logistic')">Show Logistic Regression Graph</button>
+                <div id="logistic" class="hidden">
+                    <h3>Actual vs Predicted Species Classifications</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="data:image/png;base64,{{ plot_url_log }}" class="img-fluid" alt="Logistic Regression Plot">
+                        </div>
+                        <div class="col-md-6">
+                            <p>Accuracy: {{ accuracy_log }}</p>
+                            <p>Add your description here for the logistic regression results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showGraph(graphId) {
+            document.getElementById(graphId).classList.toggle('hidden');
+        }
+    </script>
+-->
+    </main>
+
+    <footer class="mt-auto text-white-50 text-center">
+        <p>Made using <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a></p>
+    </footer>
+    
+    </div>
+  </body>
 </html>
