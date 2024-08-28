@@ -25,6 +25,10 @@ body {
   max-width: 42em;
 }
 
+/**/canvas {
+  width: 100% !important;
+  height: auto !important;
+}
 
 /*
  * Header
