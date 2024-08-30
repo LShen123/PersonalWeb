@@ -27,22 +27,13 @@ def train_and_predict_logistic(iris_pd):
     pred = Log.predict(X_test)
     return X_train, X_test, y_train, y_test, pred
 
-
-
-def plot_results(y_test, pred, plot_type):
+def plot_resultsLin(y_test, pred):
     plt.figure(figsize=(6, 6))
-    if plot_type == 'linear':
-        plt.scatter(y_test, pred)
-        plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], '--k', label="Correct prediction")
-        plt.xlabel('True petal width (cm)')
-        plt.ylabel('Predicted petal width (cm)')
-        plt.title("Real vs predicted petal widths (cm)")
-    elif plot_type == 'logistic':
-        plt.scatter(y_test, pred)
-        plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], '--k', label="Correct prediction")
-        plt.xlabel('True class')
-        plt.ylabel('Predicted class')
-        plt.title("Actual vs predicted classifications")
+    plt.scatter(y_test, pred)
+    plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], '--k', label="Correct prediction")
+    plt.xlabel('True petal width (cm)')
+    plt.ylabel('Predicted petal width (cm)')
+    plt.title("Real vs predicted petal widths (cm)")
     plt.legend()
     plt.tight_layout()
 
@@ -53,3 +44,7 @@ def plot_results(y_test, pred, plot_type):
     plot_url = base64.b64encode(buf.getvalue()).decode('utf8')
     plt.close()
     return plot_url
+
+#def plot_resultsLog(y_test, pred):
+#    plt.figure(figsize=(6, 6))
+    

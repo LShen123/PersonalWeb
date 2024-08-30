@@ -13,7 +13,7 @@ import base64
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from model import train_and_predict_linear, train_and_predict_logistic, plot_results
+from model import train_and_predict_linear, train_and_predict_logistic, plot_resultsLin
 from sklearn.metrics import accuracy_score
 import json
 
@@ -71,16 +71,16 @@ def regression():
 
     # Prepare data for training and prediction using Linear Regression
     _, _, _, y_test_lin, pred_lin = train_and_predict_linear(iris_pd)
-    plot_url_lin = plot_results(y_test_lin, pred_lin, 'linear')
+    plot_url_lin = plot_resultsLin(y_test_lin, pred_lin)
 
     # Prepare data for training and prediction using Logistic Regression
-    _, _, _, y_test_log, pred_log = train_and_predict_logistic(iris_pd)
-    plot_url_log = plot_results(y_test_log, pred_log, 'logistic')
+    #_, _, _, y_test_log, pred_log = train_and_predict_logistic(iris_pd)
+    #plot_url_log = plot_results(y_test_log, pred_log, 'logistic')
 
     # Calculate accuracy for Logistic Regression
-    accuracy_log = accuracy_score(y_test_log, pred_log)
+    #accuracy_log = accuracy_score(y_test_log, pred_log)
 
-    return render_template('regression.html', data=data, radar_data=radar_data, plot_url_lin=plot_url_lin, plot_url_log=plot_url_log, accuracy_log=accuracy_log)
+    return render_template('regression.html', data=data, radar_data=radar_data, plot_url_lin=plot_url_lin)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
