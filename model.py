@@ -46,6 +46,17 @@ def plot_resultsLin(y_test, pred):
     plt.close()
     return plot_url
 
-#def plot_resultsLog(y_test, pred):
-#    plt.figure(figsize=(6, 6))
+def plot_resultsLog(y_test, pred, iris):
+    cm = confusion_matrix(y_test, pred)
+    fig, ax = plt.subplots()
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=iris.target_names)
+    disp.plot(cmap=plt.cm.Blues, ax=ax)
+
+    img_bytes = BytesIO()
+    plt.savefig(img_bytes, format='png')
+    img_bytes.seek(0)
+    plot_url = base64.b64encode(img_bytes.getvalue()).decode('utf-8')
+    plt.close()
+    return plot_url
+
     
