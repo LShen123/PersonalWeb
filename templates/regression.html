@@ -106,9 +106,18 @@
         </header>
 
       <main class="text-bg-dark">
+        
         <div style="text-align:center">
-          <h2>Data Visualization of the Iris Datset</h2>
-          <p>The Iris Dataset is a multivariate data set that contains the length of width of the sepals and petals of three species(Setosa, Virginica, and Versicolor)</p>
+          <h2>Data Visualization of the Iris Dataset</h2>
+          <div class = "row">
+            <div class = "col-md-3">
+            </div>
+            <div class = "col-md-6">
+              <p>The Iris Dataset is a multivariate data set that contains the length of width of the sepals and petals of three species(Setosa, Virginica, and Versicolor) This data can be visualized using the scatter and radar plots seen below.</p>
+            </div>
+            <div class = "col-md-3">
+            </div>
+          </div>
         </div>
 
         <div class="container">
@@ -151,7 +160,11 @@
             </div>
             <div class="col-md-6">
                 <p>Accuracy: {{ accuracy_log }}</p>
-                <p>Add your description here for the linear regression results.</p>
+                <p>The goal of the Logisitic Regression Model is to predict which of the three species a flower belongs to based on it's 4 features. Sepal length, Speal width, Petal length, and Petal width. 
+                  The Confusion Matrix visualizes the performance of the Logistic Regression model by comparing what species the model predicted each flower to be with the actual species of the flower.
+                  Some key takeaways we can make from the confusion matrix is that the Setosa is easily distinguishable as the model perfectly classified all Setosa flowers, likely due to the unique petal measurements the species has compared to the other two.
+                  There was some misclassification between Versicolor and Virginica, which suggests that the features of these two species are more similar.
+                </p>
             </div>
           </div>
         </div>

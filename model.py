@@ -12,7 +12,7 @@ import base64
 def train_and_predict_linear(iris_pd):
     x = iris_pd.drop(labels='petal width (cm)', axis=1)
     y = iris_pd['petal width (cm)']
-    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)  # Use 30% test size for more samples
+    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=42)  # Use 30% test size for more samples
     Lin = LinearRegression()
     Lin.fit(X_train, y_train)
     pred = Lin.predict(X_test)
@@ -22,7 +22,7 @@ def train_and_predict_logistic(iris_pd):
     # Use the original target for classification
     x = iris_pd.drop(labels='target', axis=1)
     y = iris_pd['target']
-    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)  # Use 30% test size for more samples
+    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.4, random_state=42)  # Use 30% test size for more samples
     Log = LogisticRegression(max_iter=200, multi_class='ovr')
     Log.fit(X_train, y_train)
     pred = Log.predict(X_test)
@@ -51,6 +51,7 @@ def plot_resultsLog(y_test, pred, iris):
     fig, ax = plt.subplots()
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=iris.target_names)
     disp.plot(cmap=plt.cm.Blues, ax=ax)
+
 
     img_bytes = BytesIO()
     plt.savefig(img_bytes, format='png')

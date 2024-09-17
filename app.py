@@ -79,8 +79,7 @@ def regression():
 
     # Calculate accuracy for Logistic Regression
     accuracy_log = accuracy_score(y_test_log, pred_log)
-
-    return render_template('regression.html', data=data, radar_data=radar_data, plot_url_lin=plot_url_lin, plot_url_log=plot_url_log)
+    return render_template('regression.html', data=data, radar_data=radar_data, plot_url_lin=plot_url_lin, plot_url_log=plot_url_log,accuracy_log=accuracy_log)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
